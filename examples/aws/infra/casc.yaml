@@ -1,0 +1,34 @@
+jenkins:
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+       - id: admin
+         password: admin123
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "Overall/Administer:admin"
+        - "Overall/Read:authenticated"
+unclassified:
+  locale:
+    systemLocale: en
+    ignoreAcceptLanguage: true
+jobs:
+  - script: >
+      pipelineJob('opa-policies') {
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote {
+                  url('file:///usr/local/src/opa-policies')
+                }
+                branch('*/main')
+              }
+            }
+            scriptPath('examples/aws/infra/Jenkinsfile')
+            lightweight()
+          }
+        }
+      }
