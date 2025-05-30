@@ -3,7 +3,7 @@ resource "aws_s3_bucket" "localstack_s3_opa_example" {
   tags = {
     Name        = "Localstack Opa bucket"
     Environment = "Dev"
-    Tag1        = "Test"
+    Tag1        = "Test22"
   }
 }
 
