@@ -1,7 +1,7 @@
 resource "aws_s3_bucket" "localstack_s3_opa_example" {
-  bucket = "localstack-s3-opa-example"
+  bucket = "localstack-s3-opa-example-estanqua-2025"
   tags = {
-    Name        = "Locastack bucket"
+    Name        = "Localstack Opa bucket"
     Environment = "Dev"
   }
 }
